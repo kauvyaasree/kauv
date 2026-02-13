@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>For you🤍</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital@1&family=Great+Vibes&display=swap" rel="stylesheet">
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: radial-gradient(circle at center, #2a001f, #12000d);
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Falling flowers container */
+#flowers {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.flower {
+    position: absolute;
+    top: -10%;
+    animation: fall linear infinite;
+    opacity: 0.9;
+}
+
+@keyframes fall {
+    from {
+        transform: translateY(0) rotate(0deg);
+    }
+    to {
+        transform: translateY(120vh) rotate(360deg);
+    }
+}
+
+/* Card */
+.card {
+    display: none;
+    background: linear-gradient(145deg, #d9a6a6, #e06fae);
+    color: white;
+    border-radius: 18px;
+    padding: 30px;
+    width: 340px;
+    text-align: center;
+    box-shadow: 0 0 35px rgba(230, 115, 172, 0.6);
+    position: relative;
+    z-index: 2;
+}
+
+.card.active {
+    display: block;
+}
+.card img {
+    width: 150px;
+    height: 150px;
+}
+
+h1 {
+    margin-bottom: 10px;
+    font-family:'Times New Roman', Times, serif;
+color: #12000d;}
+
+p {
+    font-size: 14px;
+    opacity: 0.95;
+}
+
+/* Buttons */
+.buttons {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    position: relative;
+}
+
+button {
+    padding: 10px 20px;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.yes {
+    background: #ff4d6d;
+    color: white;
+}
+
+.no {
+    background: #4d79ff;
+    color: white;
+    position: absolute;
+}
+
+.secondary {
+    background: #ff4d6d;
+    color: white;
+    border: 1px solid white;
+}
+/* Letter Page Styling */
+.letter-title {
+    font-family: 'Great Vibes', cursive;
+    font-size: 28px;
+    color: #66183f;
+    margin-bottom: 15px;
+}
+
+.letter-box {
+    background: rgba(40, 5, 25, 0.75);
+    border-radius: 14px;
+    padding: 22px;
+    box-shadow:
+        0 0 30px rgba(255, 120, 180, 0.25),
+        inset 0 0 20px rgba(255, 160, 200, 0.08);
+    border: 1px solid rgba(255, 160, 200, 0.25);
+}
+
+.letter-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 14px;
+    line-height: 1.8;
+    color: #f6d6e6;
+    text-align: left;
+}
+
+.letter-text span {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.signature {
+    margin-top: 14px;
+    font-style: italic;
+    color: #ffb6d9;
+}
+
+/* Sparkle dots effect */
+.sparkle {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: rgba(255, 200, 220, 0.8);
+    border-radius: 50%;
+    animation: sparkleFloat 6s linear infinite;
+}
+
+@keyframes sparkleFloat {
+    from {
+        transform: translateY(0);
+        opacity: 0.9;
+    }
+    to {
+        transform: translateY(-80px);
+        opacity: 0;
+    }
+}
+/* Memories page */
+.memories-title {
+    font-family: 'Great Vibes', cursive;
+    font-size: 30px;
+    color: #d43786;
+    margin-bottom: 5px;
+}
+
+.memories-subtitle {
+    font-size: 13px;
+    opacity: 0.8;
+    margin-bottom: 18px;
+}
+
+.photo-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+
+.photo-grid img {
+    width: 100%;
+    height: 130px;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(255, 150, 200, 0.25);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.photo-grid img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 25px rgba(255, 150, 200, 0.45);
+}
+
+
+</style>
+</head>
+
+<body>
+
+<div id="flowers"></div>
+
+<!-- PAGE 1 -->
+<div class="card active" id="page1">
+    <img src="image.png">
+    <h1>Akashh Will you be my valentine 🤗?</h1>
+    <p>Life is an incredible journey, and I want to spend every second of it with you.</p>
+
+    <div class="buttons">
+        <button class="yes" onclick="showPage(2)">YES</button>
+        <button class="no" id="noBtn">NO</button>
+    </div>
+</div>
+
+<!-- PAGE 2 -->
+<div class="card" id="page2">
+    <img src="mochi.gif" alt="Description of the animated GIF">
+    <h1>Good choice Babyyy</h1>
+    <p>
+        Now you are stuck with me forever! <br>
+        No refunds. No exchanges. No escapes. <br>
+        I love you ❤️
+    </p>
+
+    <div class="buttons">
+        <button class="yes" onclick="showPage(3)">YES</button>
+        <button class="secondary" onclick="showPage(4)">Read my letters</button>
+    </div>
+</div>
+
+<!-- PAGE 3 -->
+<div class="card" id="page3">
+    <h1>TOO LATE 😌</h1>
+    <p>
+        The “Stuck With Me Forever” contract <br>
+        has already been signed in heart ink 💕
+    </p>
+
+    <div class="buttons">
+        <button class="yes" onclick="showPage(2)">Go back to us 💞</button>
+    </div>
+</div>
+
+<!-- PAGE 4 : LETTER -->
+<div class="card" id="page4">
+    <div class="letter-title">To My Dearest...</div>
+
+    <div class="letter-box">
+        <div class="letter-text">
+            <span>My Love,</span>
+            <span>
+                Thank you for being the most amazing person in my life.
+                You make every ordinary moment feel like a fairytale.
+            </span>
+            <span class="signature">
+                Forever and always,<br>
+                Yours, GF ❤️
+            </span>
+        </div>
+    </div>
+
+    <div class="buttons">
+        <button class="secondary" onclick="showPage(5)">Our Memories →</button>
+    </div>
+</div>
+
+    <!-- PAGE 5 : OUR MEMORIES -->
+<div class="card" id="page5">
+    <div class="memories-title">Look at us ✨</div>
+    <div class="memories-subtitle">See our special moments!</div>
+
+    <div class="photo-grid">
+        <img src="im.jpg">
+        <img src="im.jpg">
+        <img src="im.jpg">
+        <img src="im.jpg">
+    </div>
+
+    <div class="buttons">
+        <button class="secondary" onclick="showPage(4)">Back to letter 💌</button>
+    </div>
+</div>
+
+
+<script>
+/* Page switch */
+function showPage(num) {
+    document.querySelectorAll(".card").forEach(c => c.classList.remove("active"));
+    document.getElementById("page" + num).classList.add("active");
+}
+
+/* NO button runs away */
+const noBtn = document.getElementById("noBtn");
+noBtn.addEventListener("mouseover", () => {
+    noBtn.style.left = Math.random() * 200 - 100 + "px";
+    noBtn.style.top = Math.random() * 100 - 50 + "px";
+});
+
+/* Falling flowers */
+const flowers = ["🌸", "🌷","🌟","🌚","💮","🎈","🤍","💋","🐣","🍌","🧿","💞"];
+
+function createFlower() {
+    const flower = document.createElement("div");
+    flower.className = "flower";
+    flower.innerText = flowers[Math.floor(Math.random() * flowers.length)];
+
+    flower.style.left = Math.random() * 100 + "vw";
+    flower.style.fontSize = 14 + Math.random() * 16 + "px";
+    flower.style.animationDuration = 6 + Math.random() * 5 + "s";
+
+    document.getElementById("flowers").appendChild(flower);
+
+    setTimeout(() => flower.remove(), 12000);
+}
+
+setInterval(createFlower, 300);
+</script>
+
+</body>
+</html>
