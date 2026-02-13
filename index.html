@@ -67,13 +67,17 @@ body {
 }
 
 h1 {
+    margin-top: 4px;
     margin-bottom: 10px;
-    font-family:'Times New Roman', Times, serif;
-color: #12000d;}
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: #12000d;
+}
 
 p {
-    font-size: 14px;
+    font-size: 17px;
     opacity: 0.95;
+    color: #f1e9ef;
+    font-family: 'Times New Roman', Times, serif;
 }
 
 /* Buttons */
@@ -143,7 +147,7 @@ button {
 .signature {
     margin-top: 14px;
     font-style: italic;
-    color: #ffb6d9;
+    color: #f6d6e6;
 }
 
 /* Sparkle dots effect */
@@ -199,8 +203,100 @@ button {
     transform: scale(1.05);
     box-shadow: 0 0 25px rgba(255, 150, 200, 0.45);
 }
+.heart {
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    height: 130px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    cursor: pointer;
+    box-shadow: 0 0 15px rgba(255, 100, 150, 0.25);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
 
+.heart:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 25px rgba(255, 100, 150, 0.5);
+}
 
+.memory {
+    height: 130px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    cursor: pointer;
+    box-shadow: 0 0 15px rgba(255, 120, 180, 0.25);
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.memory:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 25px rgba(255, 120, 180, 0.45);
+}
+
+.memory img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;   /* 🔥 this is the key */
+    object-position: center 40%;
+    border-radius: 12px;
+}
+.reasons-title {
+    font-family: 'Great Vibes', cursive;
+    font-size: 28px;
+    color: #e22182;
+    margin-bottom: 20px;
+}
+
+.reasons-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.reason {
+    background: rgba(40, 5, 25, 0.75);
+    border-radius: 12px;
+    padding: 12px 14px;
+    font-size: 13px;
+    color: #f6d6e6;
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    box-shadow: 0 0 15px rgba(255, 120, 180, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.reason span {
+    color: #ff6fae;
+    font-weight: bold;
+    min-width: 24px;
+}
+
+.reason:hover {
+    transform: translateX(6px);
+    box-shadow: 0 0 25px rgba(255, 120, 180, 0.45);
+}
+#page7 {
+    animation: fadeIn 1.2s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
 </style>
 </head>
 
@@ -210,8 +306,8 @@ button {
 
 <!-- PAGE 1 -->
 <div class="card active" id="page1">
-    <img src="image.png">
-    <h1>Akashh Will you be my valentine 🤗?</h1>
+    <img src="manja.gif" alt="Description of the animated GIF">
+    <h1>Akashh Will you be my valentine 🤗? </h1>
     <p>Life is an incredible journey, and I want to spend every second of it with you.</p>
 
     <div class="buttons">
@@ -222,7 +318,7 @@ button {
 
 <!-- PAGE 2 -->
 <div class="card" id="page2">
-    <img src="mochi.gif" alt="Description of the animated GIF">
+    <img src="kk.gif" alt="Description of the animated GIF">
     <h1>Good choice Babyyy</h1>
     <p>
         Now you are stuck with me forever! <br>
@@ -251,18 +347,19 @@ button {
 
 <!-- PAGE 4 : LETTER -->
 <div class="card" id="page4">
-    <div class="letter-title">To My Dearest...</div>
+    <div class="letter-title">To My Rowdyy...</div>
 
     <div class="letter-box">
         <div class="letter-text">
             <span>My Love,</span>
             <span>
-                Thank you for being the most amazing person in my life.
-                You make every ordinary moment feel like a fairytale.
+                Meeting you has been one of the best moment in my life.You made me fall in love even without trying.You are my best friend and my other half.
+                Thank you for being the most amazing person in my life.I love you🤍
+                
             </span>
             <span class="signature">
                 Forever and always,<br>
-                Yours, GF ❤️
+                Yours, GF 🤍
             </span>
         </div>
     </div>
@@ -276,17 +373,58 @@ button {
 <div class="card" id="page5">
     <div class="memories-title">Look at us ✨</div>
     <div class="memories-subtitle">See our special moments!</div>
-
     <div class="photo-grid">
-        <img src="im.jpg">
-        <img src="im.jpg">
-        <img src="im.jpg">
-        <img src="im.jpg">
+    <div class="memory" onclick="reveal(this, 'ak.jpg')">❤️</div>
+    <div class="memory" onclick="reveal(this, 'ak1.jpg')">❤️</div>
+    <div class="memory" onclick="reveal(this, 'ak2.jpg')">❤️</div>
+    <div class="memory" onclick="reveal(this, 'ak3.jpg')">❤️</div>
+
+</div>
+    <div class="buttons">
+        <button class="secondary" onclick="showPage(6)">Why I love you 💌</button>
+    </div>
+</div>
+   <!-- PAGE 6 : 10 REASONS -->
+<div class="card" id="page6">
+    <div class="reasons-title">Reasons Why... ❤️</div>
+
+    <div class="reasons-list">
+        <div class="reason">You are my safest place in this big world 🫂</div>
+        <div class="reason">The way you care about the little details 🥹</div>
+        <div class="reason">You are beautiful — inside and out 🫠</div>
+        <div class="reason">I like your eyebrows (yes, they’re perfect 😌).</div>
+        <div class="reason">How you look when you’re focused on something 🌚</div>
+        <div class="reason">Your voice — it calms me instantly 🐣</div>
+        <div class="reason">The way you say my name 🤗</div>
+        <div class="reason">The feeling of your hand holding mine 🌝</div>
+        <div class="reason">Your craziness melts my heart 🌟</div>
+        <div class="reason">Because loving you feels like home 🤍</div>
     </div>
 
     <div class="buttons">
-        <button class="secondary" onclick="showPage(4)">Back to letter 💌</button>
+        <button class="secondary" onclick="showPage(7)">Final</button>
     </div>
+</div>
+ <!-- PAGE 7 : FINAL -->
+<div class="card" id="page7">
+    <img src="ka.gif" style="width:200px; height:200px; margin-bottom:15px;">
+    <h1 style="font-size:30px; color:#9c175a; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">
+        Happy Valentine’s Day Baby! 😚🤍
+    </h1>
+
+    <p style="font-size:18px;font-family: 'Times New Roman', Times, serif; line-height:1.6;">
+        You mean the world to me.<br>
+        I’m so grateful for every second we spend together.<br>
+        Let’s make the every day special.
+    </p>
+
+    <div class="buttons" style="margin-top:25px;">
+        <button class="secondary" onclick="showPage(1)">
+            Back to Start ↺
+        </button>
+    </div>
+</div>
+
 </div>
 
 
@@ -322,6 +460,13 @@ function createFlower() {
 }
 
 setInterval(createFlower, 300);
+function reveal(box, imgSrc) {
+    if (box.classList.contains("opened")) return;
+
+    box.classList.add("opened");
+    box.innerHTML = `<img src="${imgSrc}">`;
+}
+
 </script>
 
 </body>
